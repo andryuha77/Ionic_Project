@@ -1,0 +1,65 @@
+/* Empty. Add your own CSS if you like */
+
+.deleteitem {
+    z-index: 10;
+    color: rgb(209,35,35);
+}
+
+.list.item-checkbox {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.list.item-checkbox .title {
+    padding: 16px 0;
+    display: block;
+}
+
+.item-checkbox .checkbox {
+    right: auto;
+}
+
+.item.checked .title {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.toggle-item {
+    color: #929292;
+}
+
+.slide-in-right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+    -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+    transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+    -webkit-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms; }
+
+/*Animations*/
+
+.item.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+.item.animated.ng-leave {
+    z-index: 100;
+    -webkit-animation-name: hinge;
+    animation-name: hinge;
+}
+
+.item.animated.ng-enter {
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+
+/*end Animations*/

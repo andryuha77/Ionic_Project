@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!-- source for animations:
+    https://github.com/artemdemo/ionic-ToDo/tree/master/www/css
+    -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular-local-storage.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- refer app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/todo-ctrl.js"></script>
+</head>
+
+<body ng-app="starter" ng-controller="todoCtrl">
+    <ion-pane>
+        <!--  ion-header-bar  -->
+        <ion-header-bar class="bar-balanced">
+            <h1 class="title">Tasks-To-Do</h1>
+        </ion-header-bar>
+        <ion-header-bar class="bar-subheader item-input-inset">
+            <label class="item-input-wrapper">                
+                <input type="text" placeholder="Add Task to the list" ng-model="task.id">
+            </label>
+            <!--disable the add button if the task is empty. -->
+            <button class="button  button-calm button-small" ng-disabled="!task.id.length" ng-click="newTask(task)">
+                Add
+            </button>
+        </ion-header-bar>
+        <ion-content class="has-header has-subheader" has-bouncing="true">
+            
+             <!-- header for incompleate tasks -->   
+            <div class="item item-divider" ng-show="tasks.incomplete.length">
+                Incomplete Tasks
+            </div>
+
+            <ion-list>
+                <ion-item ng-repeat="task in tasks.incomplete" class="item item-checkbox item-icon-right animated" has-details>
+                    <!--change task from completed to incomplete -->
+                    <label class="checkbox " style="margin-right:40px" ng-click="changeToCompleted('incomplete', task)">
+                        <input type="checkbox" ng-checked="0">
+                    </label>
+                    <span ng-bind="task.id" class="item-text-wrap"></span> 
+                    <!--to delete a task -->
+                    <i class="icon ion-ios-trash-outline" ng-click="deleteTask('incomplete',task)"></i>
+                </ion-item>
+            </ion-list>
+            
+            <!-- header for incompleate tasks -->  
+            <div class="item item-divider completedtask-divider" ng-show="tasks.complete.length">
+                Completed Tasks
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="task in tasks.complete" class="item item-checkbox item-icon-right animated" has-details>
+                    <!--change task from completed to incomplete -->
+                    <label class="checkbox" style="margin-right:40px" ng-click="changeToCompleted('complete', task)">
+                        <input type="checkbox" ng-checked="1">
+                    </label>
+                    <strike><span ng-bind="task.id"  class="item-text-wrap completedtask"></span></strike>
+                    <!--to delete a task -->
+                    <i class="icon ion-ios-trash-outline" ng-click="deleteTask('complete',task)"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-pane>
+</body>
+
+</html>
