@@ -29,7 +29,6 @@
     <script src="js/app.js"></script>
     <script src="js/todo-ctrl.js"></script>
 </head>
-
 <body ng-app="starter" ng-controller="todoCtrl">
     <ion-pane>
         <!--  ion-header-bar  -->
@@ -46,7 +45,10 @@
             </button>
         </ion-header-bar>
         <ion-content class="has-header has-subheader" has-bouncing="true">
-            
+          
+          <!--Sourse of tutorial used for moving tasks between compleate encompleate:
+           http://ionicexamples.blogspot.ie/2016/01/simple-todo-list-using-ionic-part-ii.html-->
+          
              <!-- header for incompleate tasks -->   
             <div class="item item-divider" ng-show="tasks.incomplete.length">
                 Incomplete Tasks
