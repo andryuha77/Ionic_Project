@@ -1,7 +1,9 @@
+
+// Tutorial source used for locall storage:
+// http://ionicexamples.blogspot.ie/2016/01/simple-todo-list-using-ionic-part-ii.html
 angular.module('starter')
     .controller('todoCtrl', ['$scope', 'localStorageService',
         function($scope, localStorageService) {
-
             //store the data in local storage
             var TODO = "to_Do";
 
